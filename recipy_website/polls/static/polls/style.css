@@ -1,7 +1,28 @@
 li a {
-	color: yellow;
+	color: orange;
+}
+
+li {
+	color: lightgreen;
+}
+
+h1 {
+	color: lightgreen;
+}
+
+label {
+	color: lightgreen;
+}
+
+.voteCount {
+	color: orange;
+	display: inline;
 }
 
 body {
 	background: white url("images/background.gif") no-repeat;
+}
+
+body a {
+	color: orange;
 }
