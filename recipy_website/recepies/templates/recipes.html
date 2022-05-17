@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +24,7 @@
     <nav class="navbar">
       <div class="nav-center">
         <div class="nav-header">
-          <a href="index.html" class="nav-logo">
+          <a href="{% url 'index'%}" class="nav-logo">
             <img src="{%static './images/logo.svg'%}" alt="simply recipes" />
           </a>
           <button class="nav-btn btn">
@@ -62,7 +61,7 @@
         <!-- recipes list -->
         <div class="recipes-list">
           {% for item in posts %}   
-          <a href="{% url 'single_recipe'  %} " class="recipe">
+          <a href="{% url 'single_recipe'%} " class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
               class="img recipe-img"

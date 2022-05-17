@@ -23,7 +23,7 @@
     <nav class="navbar">
       <div class="nav-center">
         <div class="nav-header">
-          <a href="index.html" class="nav-logo">
+          <a href="{% url 'index'%}" class="nav-logo">
             <img src="{%static './images/logo.svg'%}" alt="simply recipes" />
           </a>
           <button class="nav-btn btn">
@@ -31,10 +31,10 @@
           </button>
         </div>
         <div class="nav-links">
-          <a href="index.html" class="nav-link"> home </a>
-          <a href="about.html" class="nav-link"> about </a>
-          <a href="tags.html" class="nav-link"> tags </a>
-          <a href="recipes.html" class="nav-link"> recipes </a>
+          <a href="{% url 'index'%}" class="nav-link"> home </a>
+          <a href="{% url 'about'%}" class="nav-link"> about </a>
+          <a href="{% url 'tags'%}" class="nav-link"> tags </a>
+          <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
 
           <div class="nav-link contact-link">
             <a href="contact.html" class="btn"> contact </a>
@@ -55,7 +55,7 @@
             Taiyaki tumblr flexitarian jean shorts brunch, aesthetic salvia
             retro.
           </p>
-          <a href="contact.html" class="btn"> contact </a>
+          <a href="{% url 'contact'%}" class="btn"> contact </a>
         </article>
         <!-- needs fixes -->
         <img
@@ -70,7 +70,7 @@
          
           <!-- single recipe -->
           {% for item in posts %}   
-          <a href="single-recipe.html" class="recipe">
+          <a href="{% url 'single_recipe'%}" class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
               class="img recipe-img"
@@ -98,7 +98,7 @@
         <a href="https://www.johnsmilga.com/">Coding Addict</a>
       </p>
     </footer>
-    <script src="./js/app.js"></script>
+    <script src="{%static './js/app.js'%}"></script>
 
   </body>
 </html>

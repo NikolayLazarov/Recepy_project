@@ -23,7 +23,7 @@
     <nav class="navbar">
       <div class="nav-center">
         <div class="nav-header">
-          <a href="index.html" class="nav-logo">
+          <a href="{% url 'index'%}" class="nav-logo">
             <img src="{%static './images/logo.svg'%}" alt="simply recipes" />
           </a>
           <button class="nav-btn btn">
@@ -31,17 +31,17 @@
           </button>
         </div>
         <div class="nav-links">
-          <a href="index.html" class="nav-link"> home </a>
-          <a href="about.html" class="nav-link"> about </a>
-          <a href="tags.html" class="nav-link"> tags </a>
-          <a href="recipes.html" class="nav-link"> recipes </a>
-          <div>
+          <a href="{% url 'index'%}" class="nav-link"> home </a>
+          <a href="{% url 'about'%}" class="nav-link"> about </a>
+          <a href="{% url 'tags'%}" class="nav-link"> tags </a>
+          <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
+         <div>
             <form method="get">
                    <input id = "q" name = "q" type="text" placeholder="your search...">
                </form>
          </div>
           <div class="nav-link contact-link">
-            <a href="contact.html" class="btn"> contact </a>
+            <a href="{% url 'contact'%} " class="btn"> contact </a>
           </div>
         </div>
       </div>
@@ -64,10 +64,10 @@
         <div class="tags-container">
           <h4>recipes</h4>
           <div class="tags-list">
-            <a href="tag-template.html">Beef (1)</a>
-            <a href="tag-template.html">Breakfast (2)</a>
-            <a href="tag-template.html">Carrots (3)</a>
-            <a href="tag-template.html">Food (4)</a>
+            <a href="{%url 'tag_template'%}">Beef (1)</a>
+            <a href="{%url 'tag_template'%}">Breakfast (2)</a>
+            <a href="{%url 'tag_template'%}">Carrots (3)</a>
+            <a href="{%url 'tag_template'%}">Food (4)</a>
           </div>
         </div>
         <!-- end of tag container -->
@@ -75,7 +75,7 @@
 
         <div class="recipes-list">
           {% for item in posts %}   
-          <a href="single-recipe.html" class="recipe">
+          <a href="{% url 'single_recipe'%}" class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
               class="img recipe-img"

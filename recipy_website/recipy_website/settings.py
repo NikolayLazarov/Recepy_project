@@ -34,7 +34,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
+    'recepies.apps.RecepiesConfig',
+    'django_elasticsearch_dsl',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,6 +87,12 @@ DATABASES = {
         'HOST': '192.168.0.105',
         'PORT': '5432',
     }
+}
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
 }
 
 

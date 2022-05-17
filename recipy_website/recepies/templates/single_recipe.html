@@ -24,7 +24,7 @@
     <nav class="navbar">
       <div class="nav-center">
         <div class="nav-header">
-          <a href="index.html" class="nav-logo">
+          <a href="{% url 'index'%}" class="nav-logo">
             <img src="{%static './images/logo.svg'%}" alt="simply recipes" />
           </a>
           <button class="nav-btn btn">
@@ -32,13 +32,13 @@
           </button>
         </div>
         <div class="nav-links">
-          <a href="index.html" class="nav-link"> home </a>
-          <a href="about.html" class="nav-link"> about </a>
-          <a href="tags.html" class="nav-link"> tags </a>
-          <a href="recipes.html" class="nav-link"> recipes </a>
+          <a href="{% url 'index'%}" class="nav-link"> home </a>
+          <a href="{% url 'about'%}" class="nav-link"> about </a>
+          <a href="{% url 'tags'%}" class="nav-link"> tags </a>
+          <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
 
           <div class="nav-link contact-link">
-            <a href="contact.html" class="btn"> contact </a>
+            <a href="{% url 'contact'%} " class="btn"> contact </a>
           </div>
         </div>
       </div>
@@ -88,10 +88,12 @@
               </article>
             </div>
             <p class="recipe-tags">
-              Tags : <a href="tag-template.html">beef</a>
-              <a href="tag-template.html">breakfast</a>
-              <a href="tag-template.html">pancakes</a>
-              <a href="tag-template.html">food</a>
+              Tags : 
+              <a href="{%url 'tag_template'%}">Beef (1)</a>
+              <a href="{%url 'tag_template'%}">Breakfast (2)</a>
+              <a href="{%url 'tag_template'%}">Carrots (3)</a>
+              <a href="{%url 'tag_template'%}">Food (4)</a>
+            
             </p>
           </article>
         </section>
@@ -163,6 +165,6 @@
         <a href="https://www.johnsmilga.com/">Recepy</a>
       </p>
     </footer>
-    <script src="./js/app.js"></script>
+    <script src="{%static './js/app.js'%}"></script>
   </body>
 </html>
