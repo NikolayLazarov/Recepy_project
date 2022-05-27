@@ -34,8 +34,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'recepies.apps.RecepiesConfig',
+    # 'elasticProbre.apps.ElasticprobreConfig',
     'django_elasticsearch_dsl',
+    'recepies.apps.RecepiesConfig',
+
+    # 'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

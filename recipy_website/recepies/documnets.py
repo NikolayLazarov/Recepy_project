@@ -17,7 +17,6 @@ class RecepyDocument(Document):
 
         # The fields of the model you want to be indexed in Elasticsearch
         fields = [
-            # 'id',
             'title',
             'ingredients',
             'description',
