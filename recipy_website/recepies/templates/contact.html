@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact || Final</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico'%}" type="image/x-icon" />
+    <!-- normalize -->
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'css/main.css'%}" />
+  </head>
+  <body>
+    <!-- nav  -->
+    <nav class="navbar">
+      <div class="nav-center">
+        <div class="nav-header">
+          <a href="{% url 'index'%}" class="nav-logo">
+            <img src="{%static './images/logo.svg'%}" alt="simply recipes" />
+          </a>
+          <button class="nav-btn btn">
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a href="{% url 'index'%}" class="nav-link"> home </a>
+          <a href="{% url 'about'%}" class="nav-link"> about </a>
+          <a href="{% url 'tags'%}" class="nav-link"> tags </a>
+          <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
+
+          <div class="nav-link contact-link">
+            <a href="{% url 'contact'%} " class="btn"> contact </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of nav -->
+    <main class="page">
+     <section class="contact-container">
+          <article class="contact-info">
+            <h3>Want To Get In Touch?</h3>
+            <p>
+              Four dollar toast biodiesel plaid salvia actually pickled banjo
+              bespoke mlkshk intelligentsia edison bulb synth.
+            </p>
+            <p>Cardigan prism bicycle rights put a bird on it deep v.</p>
+            <p>
+              Hashtag swag health goth air plant, raclette listicle fingerstache
+              cold-pressed fanny pack bicycle rights cardigan poke.
+            </p>
+          </article>
+          <article>
+            <form class="form contact-form">
+              <div class="form-row">
+                <label html="name" class="form-label">your name</label>
+                <input type="text" name="name" id="name" class="form-input" />
+              </div>
+              <div class="form-row">
+                <label html="email" class="form-label">your email</label>
+                <input type="text" name="email" id="email" class="form-input" />
+              </div>
+              <div class="form-row">
+                <label html="message" class="form-label">message</label>
+                <textarea name="message" id="message" class="form-textarea"></textarea>
+              </div>
+              <button type="submit" class="btn btn-block">
+                submit
+              </button>
+            </form>
+          </article>
+        </section>
+     <!-- featured recipes -->
+       <section class="featured-recipes">
+        <h5 class="featured-title">Look At This Awesome souce!</h5>
+        <div class="recipes-list">
+          <!-- single recipe -->
+          {% for item in posts %}   
+          <a href="{% url 'single_recipe'%}" class="recipe">
+            <img
+              src="{%static './images/recipes/recipe-4.jpeg'%}"
+              class="img recipe-img"
+              alt=""
+            />
+            <!-- here is the title -->
+            <h5><p>{{item.title}} </p></h5>
+            <p>Prep : 15min | Cook : 5min</p>
+          </a>
+          <!-- end of single recipe -->
+        {% endfor %}
+          <!-- end of single recipe -->
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer class="page-footer">
+      <p>
+        &copy; <span id="date"></span>
+        <span class="footer-logo">SimplyRecipes</span> Built by
+        <a href="https://www.johnsmilga.com/">Coding Addict</a>
+      </p>
+    </footer>
+    <script src="{%static './js/app.js'%}"></script>
+  </body>
+</html>

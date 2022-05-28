@@ -5,8 +5,10 @@ from django.http import HttpResponse
 from recepies.documnets import RecepyDocument
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+
+def probe1(request):
+    recepts =  RecepyDocument.search().query()
+    return render(request, 'search.html',{'posts':recepts})
 
 
 def search_title(request):
