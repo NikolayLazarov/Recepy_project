@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="get">
+        <input id = "q" name = "q" type="text" placeholder="your search...">
+    </form>
+    
+    {% for item in posts %}
+    <p>{{item.title}} </p>
+    <p>{{item.ingredients}} </p>
+    <p>{{item.description}}</p>
+
+        <br>
+    
+    {% endfor %}
+</body>
+</html>
+
