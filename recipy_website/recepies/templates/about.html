@@ -1,3 +1,4 @@
+<!-- not ready -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About || Final</title>
+    <title>About</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="{% static '/images/favicon.ico'%}" type="image/x-icon" />
     <!-- normalize -->
@@ -37,7 +38,7 @@
           <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
 
           <div class="nav-link contact-link">
-            <a href="contact.html" class="btn"> contact </a>
+            <a href="{% url 'contact' %}" class="btn"> contact </a>
           </div>
         </div>
       </div>
@@ -70,7 +71,7 @@
          
           <!-- single recipe -->
           {% for item in posts %}   
-          <a href="{% url 'single_recipe'%}" class="recipe">
+          <a href="{% url 'single_recipe_title' item.title%}" class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
               class="img recipe-img"
