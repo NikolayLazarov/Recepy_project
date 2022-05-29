@@ -97,7 +97,7 @@ def single_recipe(request):
 
     return render(request, 'single_recipe.html',{'posts':posts})
 
-def index(request):  #okey
+def index(request):
 
     query = request.GET.get('q')
 
@@ -121,8 +121,6 @@ def index(request):  #okey
     else:
         posts = ''
 
-    
-    print (posts)
     return render(request, 'index.html', {'posts':posts})
 
 
