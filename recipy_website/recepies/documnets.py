@@ -20,5 +20,7 @@ class RecepyDocument(Document):
             'title',
             'ingredients',
             'description',
-            # 'author',
+            'author',
+            # 'publication',
+            'tags',
         ]

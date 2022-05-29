@@ -137,10 +137,6 @@ def about(request):
 def error404(request):
     return render(request, '404.html')
 
-
-from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search
-
 def recipe_by_title (request, title):
     """print("it is okey")
     print (title)

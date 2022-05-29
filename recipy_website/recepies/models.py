@@ -8,6 +8,8 @@ class Recepy(models.Model):
     ingredients = models.TextField(max_length=400)
     description = models.TextField()
 
-    # author = models(max_length = 100)
-    
+    author = models.CharField(max_length = 50, default="Author unknown" )
+    # id = models.Index()
+    # publication = models.DateTimeField(default="2022-")
+    tags = models.TextField(max_length=300, default="dish")
     
