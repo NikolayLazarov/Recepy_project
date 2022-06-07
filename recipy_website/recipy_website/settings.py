@@ -149,3 +149,10 @@ SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
+
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

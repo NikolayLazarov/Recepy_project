@@ -5,12 +5,15 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('index/', views.index, name = 'index'), 
+    path('index/', views.filters, name = 'index'),
     
     path('recipes/',views.all_recepies,name = 'recipes'),
     path('recipes/<str:title>',views.recipe_by_title,name = 'single_recipe_title'),
+    path('recipes/<str:tags>',views.recipe_by_filter,name = 'single_recipe_filter'),
 
     #path('single_recipe/', views.single_recipe, name = 'single_recipe'),
     path('single_recipe/<str:title>/', views.recipe_by_title, name = 'single_recipe_title'),
+    path('single_recipe/<str:tags>/', views.recipe_by_filter, name = 'single_recipe_filter'),
     
     path('tags/', views.tags, name = 'tags'),
     path('tag_template/', views.tag_template, name = 'tag_template'),
