@@ -11,5 +11,8 @@ class Recepy(models.Model):
     author = models.CharField(max_length = 50, default="Author unknown" )
     # id = models.Index()
     # publication = models.DateTimeField(default="2022-")
-    tags = models.TextField(max_length=300, default="dish")
+    tags_choice = (
+        ('dish', 'dish'),
+    )
+    tags = models.TextField(max_length=300, default="dish" """, choice = tags_choice""")
     

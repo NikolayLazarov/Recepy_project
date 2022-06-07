@@ -59,7 +59,8 @@
             </p>
           </article>
           <article>
-            <form class="form contact-form">
+            <form class="form contact-form" action = "" method = "post" >
+              {% csrf_token %}
               <div class="form-row">
                 <label html="name" class="form-label">your name</label>
                 <input type="text" name="name" id="name" class="form-input" />
