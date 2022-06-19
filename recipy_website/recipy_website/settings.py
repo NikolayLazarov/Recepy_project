@@ -26,9 +26,9 @@ SECRET_KEY = os.getenv('SECRET_KEY','&k#09xvnkr=!3x^7)&u8dp022^_!$-pg_9ajbt@ic@d
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['danipaunov.pythonanywhere.com']
 
 
 # Application definition
