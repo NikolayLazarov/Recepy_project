@@ -37,13 +37,16 @@
           <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
          <div>
             <form method="get">
-                   <input id = "q" name = "q" type="text" placeholder="your search...">
-               </form>
-         </div>
-         <div>
-            <form method="get">
-                 <input id = "f" name = "f" type="text" placeholder="filters...">
-             </form>
+                    <input id = "q" name = "q" type="text" placeholder="your search...">
+            </form>
+            <!--<form method="post">
+            {% csrf_token %}
+                    <input type="checkbox" id="t1" name="tags" value="dish">
+                    <label for="t1"> Dish</label>
+                    <input type="checkbox" id="t2" name="tags" value="desert">
+                    <label for="t2"> Desert</label>
+                    <button type="submit" class ="btn btn-block" >Submit</button>
+            </form>-->
          </div>
           <div class="nav-link contact-link">
             <a href="{% url 'contact'%} " class="btn"> contact </a>
@@ -69,10 +72,8 @@
         <div class="tags-container">
           <h4>recipes</h4>
           <div class="tags-list">
-            <a href="{%url 'tag_template'%}">Beef (1)</a>
-            <a href="{%url 'tag_template'%}">Breakfast (2)</a>
-            <a href="{%url 'tag_template'%}">Carrots (3)</a>
-            <a href="{%url 'tag_template'%}">Food (4)</a>
+            <a href="{%url 'tag_template' 'dish' %}"> Dish</a>
+            <a href="{%url 'tag_template' 'desert' %}"> Desert</a>
           </div>
         </div>
         <!-- end of tag container -->
@@ -105,7 +106,7 @@
       <p>
         &copy; <span id="date"></span>
         <span class="footer-logo">SimplyRecipes</span> Built by
-        <a href="https://www.johnsmilga.com/">Coding Addict</a>
+        <a>Coding Addict</a>
       </p>
     </footer>
     <script src="{%static './js/app.js'%}"></script>

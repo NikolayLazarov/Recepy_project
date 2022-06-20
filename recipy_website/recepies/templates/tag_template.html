@@ -46,57 +46,24 @@
     <!-- end of nav -->
     <main class="page">
       <div class="featured-recipes">
-        <h4>Beef</h4>
+        <h4>{{tags}}</h4>
+        {%for item in recepts%}
+        <a href="{% url 'tag_template' item.tags %}" class="tags">
           <!-- recipes list -->
         <div class="recipes-list">
-          <!-- single recipe -->
-          <!-- new page link -->
-            <img
-              src="{%static './images/recipes/recipe-1.jpeg'%}"
-              class="img recipe-img"
-              alt=""
-            />
-            <h5>Carne Asada</h5>
-            <p>Prep : 15min | Cook : 5min</p>
-          </a>
-          <!-- end of single recipe -->
-          <!-- single recipe -->
-          <!-- new page link -->
-            <img
-              src="{%static './images/recipes/recipe-2.jpeg'%}"
-              class="img recipe-img"
-              alt=""
-            />
-            <h5>Greek Ribs</h5>
-            <p>Prep : 15min | Cook : 5min</p>
-          </a>
-          <!-- end of single recipe -->
-          <!-- single recipe -->
-          <!-- new page link -->
-            <img
-              src="{%static './images/recipes/recipe-3.jpeg'%}"
-              class="img recipe-img"
-              alt=""
-            />
-            <h5>Vegetable Soup</h5>
-            <p>Prep : 15min | Cook : 5min</p>
-          </a>
-          <!-- end of single recipe -->
-          <!-- single recipe -->
-          <!-- new page link -->
+          <a href="{% url 'single_recipe_title' item.title %}" class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
               class="img recipe-img"
               alt=""
             />
-            <h5>Banana Pancakes</h5>
+            <h5><p>{{item.title}} </p></h5>
             <p>Prep : 15min | Cook : 5min</p>
-          </a>
           <!-- end of single recipe -->
         </div>
+        {%endfor%}
         <!-- end of recipe list -->
       </div>
-          
     </main>
     <!-- footer -->
     <footer class="page-footer">

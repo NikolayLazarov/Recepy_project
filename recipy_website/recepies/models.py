@@ -13,6 +13,7 @@ class Recepy(models.Model):
     # publication = models.DateTimeField(default="2022-")
     tags_choice = (
         ('dish', 'dish'),
+        ('desert', 'desert')
     )
     tags = models.TextField(max_length=300, default="dish" """, choice = tags_choice""")
     

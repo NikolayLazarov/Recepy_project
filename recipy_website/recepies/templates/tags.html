@@ -45,35 +45,10 @@
     <!-- end of nav -->
     <main class="page">
          <section class="tags-wrapper">
-          <!-- single tag -->
-              <a href="{% url 'tag_template' %}" class="tag">
-                <h5>beef</h5>
-                <p>1 recipe</p>
-              </a>
-            <!-- end of single tag -->
-          <!-- single tag -->
-              <a href="{% url 'tag_template' %}" class="tag">
-                <h5>breakfast</h5>
-                <p>2 recipe</p>
-              </a>
-            <!-- end of single tag -->
-          <!-- single tag -->
-              <a href="{% url 'tag_template' %}" class="tag">
-                <h5>carrots</h5>
-                <p>3 recipe</p>
-              </a>
-            <!-- end of single tag -->
-          <!-- single tag -->
-              <a href="{% url 'tag_template' %}" class="tag">
-                <h5>dinner</h5>
-                <p>4 recipe</p>
-              </a>
-            <!-- end of single tag -->
-          <!-- single tag -->
-              <a href="{% url 'tag_template' %}" class="tag">
-                <h5>food</h5>
-                <p>1 recipe</p>
-              </a>
+          <a href="{%url 'tag_template' 'dish' %}" class = "tag"> 
+            <h5>Dish</h5> </a>
+          <a href="{%url 'tag_template' 'desert' %}" class = "tag">
+            <h5> Desert</h5> </a>
             <!-- end of single tag -->
         </section>
     </main>
