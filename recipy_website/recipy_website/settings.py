@@ -26,9 +26,9 @@ SECRET_KEY = os.getenv('SECRET_KEY','&k#09xvnkr=!3x^7)&u8dp022^_!$-pg_9ajbt@ic@d
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['danipaunov.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -150,9 +150,7 @@ SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_BACKEND = 'django_mailgun_mime.backends.MailgunMIMEBackend'
+# Add environment variables (and restart) or replace these with the intended value
+MAILGUN_API_KEY = os.environ['MAILGUN_API_KEY']             # Enter API key (Dashboard -> API keys -> Private API Key)
+MAILGUN_DOMAIN_NAME = os.environ['MAILGUN_DOMAIN_NAME']     # Enter Domain Name (Dashboard -> Sending Domains)

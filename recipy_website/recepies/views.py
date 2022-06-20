@@ -1,21 +1,18 @@
-from django import forms
 from django.shortcuts import render
-from django.test import tag
 from elasticsearch_dsl import Q
 # Create your views here.
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from recepies.documnets import RecepyDocument
 
-from django.core.mail import send_mail, get_connection
+from django.core.mail import EmailMessage
 from .forms import ContactForm
 
-#pages 
+#pages
 
 #the search
-def index(request): 
+def index(request):
 
     query = request.GET.get('q')
 
@@ -32,7 +29,7 @@ def index(request):
     else:
         posts = ''
 
-    
+
     print (posts)
     return render(request, 'index.html', {'posts':posts})
 
@@ -56,7 +53,7 @@ def filters(request):
 
 #all data
 def all_recepies(request):
-    recepts = RecepyDocument.search().query() 
+    recepts = RecepyDocument.search().query()
     return render(request, 'recipes.html',{'posts':recepts})
 
 #result page
@@ -85,11 +82,10 @@ def contact(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            
-            recipients = [''] #for email
-            con = get_connection('django.core.mail.backends.console.EmailBackend')
-            send_mail(name, message, email, recipients, connection = con)
-            
+
+            recipients = ['', ] # Enter at least 1 recipient (You may need to add email to "Authorized Recipients" (Sending -> Overview))
+            email_message = EmailMessage(name, message, email, recipients)
+            email_message.send(fail_silently = False)
 
             return HttpResponseRedirect('./?submitted=True')
     else:
