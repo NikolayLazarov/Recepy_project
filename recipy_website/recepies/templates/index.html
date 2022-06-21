@@ -35,19 +35,6 @@
           <a href="{% url 'about'%}" class="nav-link"> about </a>
           <a href="{% url 'tags'%}" class="nav-link"> tags </a>
           <a href="{% url 'recipes'%}" class="nav-link"> recipes </a>
-         <div>
-            <form method="get">
-                    <input id = "q" name = "q" type="text" placeholder="your search...">
-            </form>
-            <!--<form method="post">
-            {% csrf_token %}
-                    <input type="checkbox" id="t1" name="tags" value="dish">
-                    <label for="t1"> Dish</label>
-                    <input type="checkbox" id="t2" name="tags" value="desert">
-                    <label for="t2"> Desert</label>
-                    <button type="submit" class ="btn btn-block" >Submit</button>
-            </form>-->
-         </div>
           <div class="nav-link contact-link">
             <a href="{% url 'contact'%} " class="btn"> contact </a>
           </div>
@@ -62,7 +49,11 @@
         <div class="hero-container">
           <div class="hero-text">
             <h1>simply recipes</h1>
-            <h4>no fluff, just recipes</h4>
+            <h4><div>
+              <form method="get">
+                      <input id = "q" name = "q" type="text" placeholder="your search...">
+              </form>
+           </div></h4>
           </div>
         </div>
       </header>
