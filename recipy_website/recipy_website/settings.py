@@ -89,7 +89,8 @@ DATABASES = {
         'PASSWORD': 'django9512',
         'HOST': '192.168.0.105',
         'PORT': '5432',
-    }
+    },
+    
 }
 
 ELASTICSEARCH_DSL={

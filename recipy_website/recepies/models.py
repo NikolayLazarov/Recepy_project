@@ -15,4 +15,9 @@ class Recepy(models.Model):
         ('dish', 'dish'),
     )
     tags = models.TextField(max_length=300, default="dish" """, choice = tags_choice""")
-    
+
+
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    secondName = models.CharField(max_length=20)
+    info = models.TextField(max_length=600)

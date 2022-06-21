@@ -1,15 +1,14 @@
 from django import forms
+from django.core.mail import get_connection, send_mail
+# Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.test import tag
 from elasticsearch_dsl import Q
-# Create your views here.
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
 
 from recepies.documnets import RecepyDocument
+from recepies.models import User
 
-from django.core.mail import send_mail, get_connection
 from .forms import ContactForm
 
 #pages 
@@ -38,6 +37,8 @@ def index(request):
 
 def filters(request):
     filter = request.GET.get('f')
+
+
 
     if filter:
         f = Q(
@@ -107,3 +108,6 @@ def about(request):
 def error404(request):
     return render(request, '404.html')
 
+def all_users(request):
+    users = User.objects.all
+    return render(request, 'recipes.html',{'posts':users})
