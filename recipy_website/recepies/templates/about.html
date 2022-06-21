@@ -70,7 +70,7 @@
         <div class="recipes-list">
          
           <!-- single recipe -->
-          {% for item in posts %}   
+          {% for item in posts %} 
           <a href="{% url 'single_recipe_title' item.title%}" class="recipe">
             <img
               src="{%static './images/recipes/recipe-4.jpeg'%}"
@@ -96,7 +96,7 @@
       <p>
         &copy; <span id="date"></span>
         <span class="footer-logo">SimplyRecipes</span> Built by
-        <a href="https://www.johnsmilga.com/">Coding Addict</a>
+        <a>Coding Addict</a>
       </p>
     </footer>
     <script src="{%static './js/app.js'%}"></script>

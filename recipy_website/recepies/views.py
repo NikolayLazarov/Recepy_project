@@ -1,15 +1,17 @@
 from django import forms
-from django.core.mail import get_connection, send_mail
-# Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.test import tag
 from elasticsearch_dsl import Q
+# Create your views here.
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from recepies.documnets import RecepyDocument
 from recepies.models import User
+from django.core.mail import EmailMessage
+from .forms import *
 
-from .forms import ContactForm
 
 #pages 
 
@@ -17,6 +19,9 @@ from .forms import ContactForm
 def index(request): 
 
     query = request.GET.get('q')
+    
+    #if request.method == 'POST':
+    #recepts = request.POST.getlist('tags')
 
     if query:
         q = Q(
@@ -24,35 +29,16 @@ def index(request):
             should = [
                 Q('match',title = query),
                 Q('match', ingredients = query),
+                #Q('match', tags = recepts)
             ],
             minimum_should_match = 1)
-
         posts = RecepyDocument.search().query(q)
+        #return render(request, 'index.html', {'posts':posts})
+        #print (posts)
+        
     else:
-        posts = ''
-
-    
-    print (posts)
-    return render(request, 'index.html', {'posts':posts})
-
-def filters(request):
-    filter = request.GET.get('f')
-
-
-
-    if filter:
-        f = Q(
-            'bool',
-            should = [
-                Q('match', tags = filter),
-            ],
-            minimum_should_match = 1)
-
-        posts = RecepyDocument.search().query(f)
-    else:
-        posts = ''
-
-    print (posts)
+        posts = ""
+       
     return render(request, 'index.html', {'posts':posts})
 
 #all data
@@ -62,21 +48,17 @@ def all_recepies(request):
 
 #result page
 def recipe_by_title (request, title):
-
     recepts =  RecepyDocument.search().query("match", title=title)
-    return render(request, "single_recipe.html", {"recepts": recepts})
-
-def recipe_by_filter (request, tags):
-
-    recepts =  RecepyDocument.search().query("match", tags=tags)
     return render(request, "single_recipe.html", {"recepts": recepts})
 
 #other
 def tags(request):
-    return render(request, 'tags.html')
+    recepts = RecepyDocument.search().query() 
+    return render(request, 'tags.html',{'posts':recepts})
 
-def tag_template(request):
-    return render(request, 'tag_template.html')
+def tag_template(request, tags):
+    recepts =  RecepyDocument.search().query("match", tags=tags)
+    return render(request, "tag_template.html", {"recepts": recepts, "tags": tags})
 
 def contact(request):
     submitted = False
@@ -87,9 +69,9 @@ def contact(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             
-            recipients = [''] #for email
-            con = get_connection('django.core.mail.backends.console.EmailBackend')
-            send_mail(name, message, email, recipients, connection = con)
+            recipients = ['', ] #for email
+            email_message = EmailMessage(name, message, email, recipients)
+            email_message.send(fail_silently = False)
             
 
             return HttpResponseRedirect('./?submitted=True')

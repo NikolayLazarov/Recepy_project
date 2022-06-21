@@ -58,9 +58,6 @@
           />
           <article class="recipe-info">
             <h2>{{recept.title}}</h2>
-            <p>
-              {{recept.description}}
-            </p>
             <div class="recipe-icons">
               <article>
                 <i class="fas fa-clock"></i>
@@ -80,10 +77,7 @@
             </div>
             <p class="recipe-tags">
               Tags : 
-              <a href="{%url 'tag_template'%}">Beef (1)</a>
-              <a href="{%url 'tag_template'%}">Breakfast (2)</a>
-              <a href="{%url 'tag_template'%}">Carrots (3)</a>
-              <a href="{%url 'tag_template'%}">Food (4)</a>
+              <a href="{%url 'tag_template' recept.tags %}">{{recept.tags}}</a>
             
             </p>
           </article>
@@ -95,37 +89,10 @@
             <!-- single instruction -->
             <div class="single-instruction">
               <header>
-                <p>step 1</p>
                 <div></div>
               </header>
               <p>
-                I'm baby mustache man braid fingerstache small batch venmo
-                succulents shoreditch.
-              </p>
-            </div>
-            <!-- end of single instruction -->
-            <!-- single instruction -->
-            <div class="single-instruction">
-              <header>
-                <p>step 2</p>
-                <div></div>
-              </header>
-              <p>
-                Pabst pitchfork you probably haven't heard of them, asymmetrical
-                seitan tousled succulents wolf banh mi man bun bespoke selfies
-                freegan ethical hexagon.
-              </p>
-            </div>
-            <!-- end of single instruction -->
-            <!-- single instruction -->
-            <div class="single-instruction">
-              <header>
-                <p>step 3</p>
-                <div></div>
-              </header>
-              <p>
-                Polaroid iPhone bitters chambray. Cornhole swag kombucha
-                live-edge.
+               {{recept.description}}
               </p>
             </div>
             <!-- end of single instruction -->
@@ -136,11 +103,11 @@
               {{recept.ingredients}}
             </div>
             <div>
-              <h4>tools</h4>
+              <!-- <h4>tools</h4>
               <p class="single-tool">Hand Blender</p>
               <p class="single-tool">Large Heavy Pot With Lid</p>
               <p class="single-tool">Measuring Spoons</p>
-              <p class="single-tool">Measuring Cups</p>
+              <p class="single-tool">Measuring Cups</p> -->
             </div>
           </article>
         </section>
@@ -152,7 +119,7 @@
       <p>
         &copy; <span id="date"></span>
         <span class="footer-logo">SimplyRecipes</span> Built by
-        <a href="https://www.johnsmilga.com/">Recepy</a>
+        <a>Recepy</a>
       </p>
     </footer>
     <script src="{%static './js/app.js'%}"></script>
